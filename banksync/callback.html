@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="robots" content="noindex">
+<title>Back to Up or Down</title>
+<style>
+  :root { --cream:#f7f6f3; --ink:#502926; --mint:#daf0e5; --up:#254f3e; }
+  * { box-sizing: border-box; }
+  body { margin:0; min-height:100vh; display:grid; place-items:center; background:var(--cream); color:var(--ink);
+         font:17px/1.4 -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, sans-serif; padding:24px; }
+  main { width:100%; max-width:380px; background:var(--mint); border-radius:22px; padding:28px 24px; text-align:center; }
+  h1 { font-size:24px; margin:0 0 8px; }
+  p { margin:0 0 20px; color:var(--up); }
+  a.button { display:block; background:var(--ink); color:#fff; text-decoration:none; font-weight:600;
+             border-radius:14px; padding:14px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Bank approved</h1>
+  <p>Tap below to finish connecting in Up or Down.</p>
+  <a class="button" id="back" href="upordown-banksync://callback">Back to Up or Down</a>
+</main>
+<script>
+  // Hands BankSync's one-time reply to the app at once; the button covers browsers that ask first.
+  // Nothing is sent or stored by this page.
+  var back = "upordown-banksync://callback" + location.search;
+  document.getElementById("back").href = back;
+  location.replace(back);
+</script>
+</body>
+</html>
